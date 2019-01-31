@@ -1,0 +1,144 @@
+// trying to get bubble sort to work as a template. It does not work when using her swap function. will try doing it my own way
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int * GenerateRandomArray(int len)
+{
+    int * random = new int[len];
+    for(int i=0;i<len;i++)
+        random[i] = (rand() % 100000);
+    return random;
+};
+
+void PrintArray (int* array, int len)
+{
+        for (int i=0; i<len; i++)
+                cout<< array[i] << endl;
+};
+
+template <class T>
+void swap (T & first, T & second)
+{
+    T temp;  // a temp variable
+
+    temp = first;
+    first = second;
+    second = temp;
+}
+
+template <class T>
+void bubblesort (T a[], int len)
+{
+
+     for (int end_index = len-1; end_index>0; end_index--)
+     {
+                for (int i=0; i<=end_index-1;i++)
+                        if (a[i] > a[i+1])
+                                swap (a[i], a[i+1]);
+     }
+
+}
+
+int main()
+{
+
+        int * array = GenerateRandomArray(10);
+
+        int len;
+
+        cout<< "Testing bubble sort" << endl;
+        PrintArray(array,10);
+        bubblesort(array,10);
+        cout<< endl;
+        cout<< "After: " << endl;
+        PrintArray(array,10);
+
+        return 0;
+}
+
+//
+//
+//
+//
+//
+//
+//
+//
+// my attempt
+//
+//
+//
+//
+//
+//
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int * GenerateRandomArray(int len)
+{
+    int * random = new int[len];
+    for(int i=0;i<len;i++)
+        random[i] = (rand() % 100000);
+    return random;
+};
+
+void PrintArray (int* array, int len)
+{
+        for (int i=0; i<len; i++)
+                cout<< array[i] << endl;
+};
+
+
+template <class T>
+void bubblesort (T a[], int len)
+{
+
+     for (int end_index = len-1; end_index>0; end_index--)
+     {
+                for (int i=0; i<=end_index-1;i++)
+                        if (a[i] > a[i+1])
+                                swap(a[i], a[i+1]);
+     }
+
+}
+
+int main()
+{
+
+        int * array = GenerateRandomArray(10);
+
+        int len;
+
+        cout<< "Testing bubble sort" << endl;
+        PrintArray(array,10);
+        bubblesort(array,10);
+        cout<< endl;
+        cout<< "After: " << endl;
+        PrintArray(array,10);
+
+        return 0;
+}
+
+
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+// all functions work. 
+// 
+// Missing bool function to check if list is sorted, missing swap function, and missing time function
+//
+//
+// could try to get each sorting function to work recursively. 
+//
